@@ -1,6 +1,6 @@
 # Click Travel
 
-**Sujet** : Récupérer un billet d'avion pour aller à la destination de vos rêves
+**Dojo** : Récupérer un billet d'avion pour aller à la destination de vos rêves
 
 ![screenshot](./src/assets/screenshot.png)
 
