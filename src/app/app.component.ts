@@ -10,20 +10,24 @@ import { Destination } from './models/destination.interface';
 })
 export class AppComponent implements OnInit {
   title = 'Choose your dream destination...';
-  destinations: Destination[] = [];
+  private destinations: Destination[] = [];
+  filteredDestinations: Destination[] = [];
+  showDreamDestination: boolean = true;
 
   constructor(private travelService: ClickTravelService) {}
 
   ngOnInit() {
     this.travelService
       .getDestinations()
-      .pipe(
-        map((dest) => {
-          return dest.filter((d) => d.isDreamDestination);
-        })
-      )
       .subscribe((destinations) => {
         this.destinations = destinations;
+        this.filterDestinations()
       });
+  }
+
+  filterDestinations() {
+    this.filteredDestinations = this.destinations.filter(
+      (d) => this.showDreamDestination ? d.isDreamDestination : true
+    );
   }
 }
