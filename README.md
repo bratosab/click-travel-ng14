@@ -11,7 +11,7 @@
 - Récupérer et afficher les destinations de rêve par les destinations de rêve de l'API, pour se faire :
   1. Créer un service `click-travel` et l'injecter dans l'app,
   2. Créer une méthode pour récupérer les données de l'API `https://travel-api.clicksomeone.com/destinations` - [Swagger de l'API](https://travel-api.clicksomeone.com/explorer/#/DestinationController/DestinationController.find),
-  3. Implémenter l'appel de cette méthode dans le composant `AppComponent` et filtrer par les destinations de rêves (`isDreamDestination: true`), de préférence avec du [**RxJS**](https://www.learnrxjs.io/learn-rxjs/operators/filtering/filter),
+  3. Implémenter l'appel de cette méthode dans le composant `AppComponent` et filtrer par les destinations de rêves (`isDreamDestination: true`), de préférence avec du [**RxJS**](https://www.learnrxjs.io/learn-rxjs/operators/transformation/mapto),
   4. Remplacer les boutons codés en dur de la home page par les destinations de rêves dynamiques.
 
 # Partie 2
