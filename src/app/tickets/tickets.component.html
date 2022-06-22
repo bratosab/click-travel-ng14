@@ -1,21 +1,30 @@
 <div class="card">
-    <p-table [value]="tickets" selectionMode="single" [(selection)]="selectedTicket" dataKey="flight" responsiveLayout="scroll" (onRowSelect)="selectTicket($event)">
-        <ng-template pTemplate="header">
-            <tr>
-                <th>Name</th>
-                <th>From</th>
-                <th>Destination</th>
-                <th>Class</th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-ticket>
-            <tr [pSelectableRow]="ticket">
-                <td>{{ticket.flight}}</td>
-                <td>{{ticket.from}}</td>
-                <td>{{ticket.to}}</td>
-                <td>{{ticket.class}}</td>
-            </tr>
-        </ng-template>
-    </p-table>
+  <p-table
+    [value]="tickets"
+    selectionMode="single"
+    [(selection)]="selectedTicket"
+    dataKey="flight"
+    responsiveLayout="scroll"
+    (onRowSelect)="selectTicket()"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Name</th>
+        <th>From</th>
+        <th>Destination</th>
+        <th>Class</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-ticket>
+      <tr [pSelectableRow]="ticket">
+        <td>{{ ticket.flight }}</td>
+        <td>{{ ticket.from }}</td>
+        <td>{{ ticket.to }}</td>
+        <td>{{ ticket.class }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
 </div>
-
+<p-dialog [showHeader]="false" [(visible)]="displayTicket" styleClass="transparent-dialog">
+  <app-boarding-pass *ngIf="selectedTicket" [ticket]="selectedTicket"></app-boarding-pass>
+</p-dialog>

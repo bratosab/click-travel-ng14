@@ -11,6 +11,7 @@ import { Ticket } from '../models/tickets.interface';
 export class TicketsComponent implements OnInit {
   tickets: Ticket[] = [];
   selectedTicket: Ticket;
+  displayTicket = false;
 
   constructor(
     private travelService: ClickTravelService,
@@ -28,7 +29,7 @@ export class TicketsComponent implements OnInit {
     }
   }
 
-  selectTicket(ticket: Ticket) {
-    console.log(this.selectedTicket);
+  selectTicket() {
+    this.displayTicket = true
   }
 }
