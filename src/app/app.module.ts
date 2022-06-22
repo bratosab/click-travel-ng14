@@ -7,13 +7,16 @@ import { LogoComponent } from './logo/logo.component';
 import { ButtonModule } from 'primeng/button';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { FormsModule } from '@angular/forms';
+import { TicketsComponent } from './tickets/tickets.component';
+import { DestinationsComponent } from './destinations/destinations.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LogoComponent,
-    
+    TicketsComponent,
+    DestinationsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,19 @@
+<div>
+  <h1 class="title">{{ title }}</h1>
+  <div class="links">
+    <p-toggleButton
+      [(ngModel)]="showDreamDestination"
+      onLabel="Dream Destination"
+      offLabel="Dream Destination"
+      onIcon="pi pi-check"
+      offIcon="pi pi-times"
+      (onChange)="filterDestinations()"
+    ></p-toggleButton>
+
+    <p-button
+      *ngFor="let dest of filteredDestinations"
+      [label]="dest.name"
+      [routerLink]="['/tickets', dest.code]"
+    ></p-button>
+  </div>
+</div>
