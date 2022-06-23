@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ClickTravelService } from '../click-travel.service';
-import { Ticket } from '../models/tickets.interface';
+import { ClickTravelService } from '../../click-travel.service';
+import { Ticket } from '../../models/tickets.interface';
 
 @Component({
   selector: 'app-tickets',

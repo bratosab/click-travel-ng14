@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { Ticket } from '../models/tickets.interface';
+import { Ticket } from '../../models/tickets.interface';
 
 @Component({
   selector: 'app-boarding-pass',

@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { Destination } from './models/destination.interface';
 import { Ticket } from './models/tickets.interface';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class ClickTravelService {
   baseUrl = 'https://travel-api.clicksomeone.com';
 
