@@ -1,1 +1,51 @@
-<p>admin-container works!</p>
+<p-dialog
+  header="Title"
+  [(visible)]="displayNewDestination"
+  [style]="{ width: '50vw', minHeight: '400px' }"
+>
+  <form [formGroup]="destinationForm" (ngSubmit)="validateForm()">
+    <span class="p-float-label p-input-icon-left input-block">
+      <i class="pi pi-send"></i>
+      <input id="float-input" type="text" pInputText formControlName="name" />
+      <label for="float-input">Destination name</label>
+    </span>
+
+    <span class="p-float-label p-input-icon-left input-block">
+      <i class="pi pi-tags"></i>
+      <input id="float-input" type="text" pInputText formControlName="code" />
+      <label for="float-input">Destination code</label>
+    </span>
+
+    <div class="input-block">
+      <p-dropdown
+        [options]="weathers"
+        formControlName="weather"
+        placeholder="Select weather at destination"
+      ></p-dropdown>
+    </div>
+
+    <div class="field-checkbox input-block">
+      <p-checkbox
+        [binary]="true"
+        [formControl]="isDreamDestinationControl"
+        label="Is a dream destination ?"
+      ></p-checkbox>
+    </div>
+
+    <button
+      pButton
+      type="submit"
+      [disabled]="!destinationForm.valid"
+      icon="pi pi-check"
+      label="Add"
+    ></button>
+  </form>
+</p-dialog>
+
+<button
+  pButton
+  type="button"
+  (click)="displayNewDestination = true"
+  icon="pi pi-plus"
+  label="New Destination"
+></button>
