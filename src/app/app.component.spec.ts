@@ -23,7 +23,7 @@ describe('AppComponent', () => {
   it(`should have as title 'click-travel-ng14'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('click-travel-ng14');
+    expect(app.title).toEqual('Click Travel');
   });
 
   it('should render title', () => {
