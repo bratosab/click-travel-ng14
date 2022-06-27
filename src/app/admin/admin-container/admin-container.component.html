@@ -15,6 +15,11 @@
       <input id="float-input" type="text" pInputText formControlName="code" />
       <label for="float-input">Destination code</label>
     </span>
+    <div style="font-size:12px; color:red;margin-top:-20px;">
+    <span *ngIf="code?.pending">Checking destination...</span>
+    <span *ngIf="code && code.errors && code.errors['codeTaken']"
+      >Destination code is already taken</span
+    ></div>
 
     <div class="input-block">
       <p-dropdown

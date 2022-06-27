@@ -6,6 +6,7 @@ import {
   FormControlStatus,
 } from '@angular/forms';
 import { ClickTravelService } from 'src/app/click-travel.service';
+import { DestinationCodeValidator } from 'src/app/core/validators/dest-code.validator';
 import { Destination } from 'src/app/models/destination.interface';
 
 @Component({
@@ -30,7 +31,10 @@ export class AdminContainerComponent implements OnInit {
     name: ['', Validators.required],
     code: [
       '',
-      [Validators.required, Validators.minLength(3), Validators.maxLength(3)],
+      {
+        validators: [Validators.required, Validators.minLength(3), Validators.maxLength(3)],
+        asyncValidators: [this.destCodeValidator],
+      }
     ],
     weather: ['', Validators.required],
     isDreamDestination: [false],
@@ -38,7 +42,8 @@ export class AdminContainerComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private travelService: ClickTravelService
+    private travelService: ClickTravelService,
+    private destCodeValidator: DestinationCodeValidator
   ) {}
 
   ngOnInit(): void {}
@@ -46,6 +51,8 @@ export class AdminContainerComponent implements OnInit {
   get isDreamDestinationControl() {
     return this.destinationForm.controls['isDreamDestination'] as FormControl;
   }
+
+  get code() { return this.destinationForm.get('code'); }
 
   validateForm() {
     if (this.destinationForm.valid) {
