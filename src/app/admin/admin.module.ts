@@ -10,10 +10,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
+import { TranslateModule } from '@ngx-translate/core';
 @NgModule({
   declarations: [AdminContainerComponent],
   imports: [
     CommonModule,
+    TranslateModule.forChild({ extend: true }),
     AdminRoutingModule,
     ReactiveFormsModule,
     DialogModule,

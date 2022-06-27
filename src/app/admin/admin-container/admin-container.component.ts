@@ -5,6 +5,7 @@ import {
   Validators,
   FormControlStatus,
 } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 import { ClickTravelService } from 'src/app/click-travel.service';
 import { DestinationCodeValidator } from 'src/app/core/validators/dest-code.validator';
 import { Destination } from 'src/app/models/destination.interface';
@@ -15,6 +16,7 @@ import { Destination } from 'src/app/models/destination.interface';
   styleUrls: ['./admin-container.component.scss'],
 })
 export class AdminContainerComponent implements OnInit {
+  title = this.translate.instant('ChooseDestination');
   displayNewDestination = false;
   weathers = [
     'Sunny',
@@ -43,7 +45,8 @@ export class AdminContainerComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private travelService: ClickTravelService,
-    private destCodeValidator: DestinationCodeValidator
+    private destCodeValidator: DestinationCodeValidator,
+    private translate: TranslateService
   ) {}
 
   ngOnInit(): void {}

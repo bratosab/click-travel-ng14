@@ -1,9 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { TranslationLoaderResolver } from './core/translation-loader.resolver';
 import { DestinationsComponent } from './destinations/destinations.component';
 
 const routes: Routes = [
-  { path: '', component: DestinationsComponent },
+  {
+    path: '',
+    component: DestinationsComponent,
+    resolve: {
+      trad: TranslationLoaderResolver,
+    },
+  },
   {
     path: 'tickets',
     loadChildren: () =>
