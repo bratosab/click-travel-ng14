@@ -62,7 +62,18 @@ Avec les champs suivant :
 
 Le code CSS et HTML tu ticket est disponible ici : https://codepen.io/bratosab/pen/qBxGrgQ
 
+# Partie 5
 
+Nous voulons pouvoir ajouter des nouvelles destinations dans l'API.
+- Ajouter un module Admin sur un path `/admin` allant vers une page d'administration.
+- Sur cette nouvelle page, ajouter un bouton qui ouvre une Dialog avec un formulaire permettant de saisir une nouvelle destination, utilisez les formulaire reactif.
+- Ajouter et gerer l'appel API : POST vers `/destinations`.
+- Ajouter un Validateur dynamique permettant de vérifier que le code de la destination saisie n'est pas déjà utilisé.
+
+# Partie 6
+
+L'application fonctionne super bien et fait le Buzz !
+- Internationnaliser l'application pour permettre de la traduire dans plusieurs langues à l'aide de i18n.
 
 # Les liens
 
