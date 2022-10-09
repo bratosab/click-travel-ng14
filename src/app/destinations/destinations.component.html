@@ -7,7 +7,6 @@
     ></p-autoComplete>
   </div>
   <h1 class="title">{{ 'ChooseDestination' | translate }}</h1>
-  <h1 class="title">{{ title }}</h1>
   <div class="links">
     <p-toggleButton
       [(ngModel)]="showDreamDestination"
@@ -19,7 +18,7 @@
     ></p-toggleButton>
 
     <p-button
-      *ngFor="let dest of filteredDestinations"
+      *ngFor="let dest of filteredDestinations; trackBy: trackDest"
       [label]="dest.name"
       [routerLink]="['/tickets', dest.code]"
     ></p-button>

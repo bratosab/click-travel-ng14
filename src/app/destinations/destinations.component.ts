@@ -34,6 +34,10 @@ export class DestinationsComponent implements OnInit {
     );
   }
 
+  trackDest(index: number, item: Destination): string { return item.code; }
+
+  
+
   search({ query }: { query: string }) {
     const params = new HttpParams().set(
       'filter',
