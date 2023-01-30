@@ -6,10 +6,21 @@
     <div>
       <h1 class="title">{{ title }}</h1>
       <div class="links">
-        <a href="#" class="giant-button"> San Francisco, USA </a>
-        <a href="#" class="giant-button"> Québec, Canada </a>
-        <a href="#" class="giant-button"> Bora Bora, Polynésie </a>
-        <a href="#" class="giant-button"> Torres del Paine, Chile </a>
+        <p-toggleButton
+          [(ngModel)]="showDreamDestination"
+          onLabel="Dream Destination"
+          offLabel="Dream Destination"
+          onIcon="pi pi-check"
+          offIcon="pi pi-times"
+          (onChange)="filterDestinations()"
+        ></p-toggleButton>
+
+        
+          <p-button
+            *ngFor="let dest of filteredDestinations"
+            [label]="dest.name"
+            [routerLink]="['/tickets', dest.code]"
+          ></p-button>
       </div>
     </div>
   </div>
