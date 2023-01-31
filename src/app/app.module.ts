@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LogoComponent } from './logo/logo.component';
 import { ClickTravelService } from './providers/click-travel.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {ButtonModule} from 'primeng/button';
 import {ToggleButtonModule} from 'primeng/togglebutton';
@@ -22,8 +22,9 @@ import {ToggleButtonModule} from 'primeng/togglebutton';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     ButtonModule,
-    ToggleButtonModule
+    ToggleButtonModule,
   ],
   providers: [ClickTravelService],
   bootstrap: [AppComponent]

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { FormControl } from '@angular/forms';
+import { combineLatest, map, Observable, startWith, switchMap, tap, timer } from 'rxjs';
 import { Destination } from './models/destination.interface';
 import { ClickTravelService } from './providers/click-travel.service';
 
@@ -10,25 +11,24 @@ import { ClickTravelService } from './providers/click-travel.service';
 })
 export class AppComponent implements OnInit {
   title = 'Choose your dream destination...';
-  // // destinations$!: Observable<Destination[]>;
-  private destinations: Destination[] = [];
-  filteredDestinations: Destination[] = [];
-  showDreamDestination: boolean = true;
+
+  filteredDestinations$!: Observable<Destination[]>;
+  isDreamDestination = new FormControl(false);
 
   constructor(private travelService: ClickTravelService) {}
 
   ngOnInit() {
-    this.travelService.getDestinations().subscribe((destinations) => {
-      this.destinations = destinations;
-      this.filterDestinations();
-    });
+    this.filteredDestinations$ = this.isDreamDestination.valueChanges.pipe(
+      startWith(this.isDreamDestination.value),
+      switchMap((isDreamDestination) => {
+        return this.travelService.destinations$.pipe(
+          map((destinations) => {
+            return destinations.filter((dest) => dest.isDreamDestination === isDreamDestination);
+          })
+        )
+      })
+    )
 
-  }
-
-
-  filterDestinations() {
-    this.filteredDestinations = this.destinations.filter((d) =>
-      this.showDreamDestination ? d.isDreamDestination : true
-    );
+    this.travelService.getDestinations().subscribe()
   }
 }

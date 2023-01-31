@@ -7,19 +7,19 @@
       <h1 class="title">{{ title }}</h1>
       <div class="links">
         <p-toggleButton
-          [(ngModel)]="showDreamDestination"
           onLabel="Dream Destination"
           offLabel="Dream Destination"
           onIcon="pi pi-check"
           offIcon="pi pi-times"
-          (onChange)="filterDestinations()"
+          [formControl]="isDreamDestination"
         ></p-toggleButton>
 
-        
+        <ng-container *ngIf="filteredDestinations$ | async as filteredDestinations ">
           <p-button
             *ngFor="let dest of filteredDestinations"
             [label]="dest.name"
           ></p-button>
+        </ng-container>
       </div>
     </div>
   </div>
