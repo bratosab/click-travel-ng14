@@ -1,6 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { combineLatest, filter, map, startWith, Subscription } from 'rxjs';
+import {
+  combineLatest,
+  filter,
+  map,
+  Observable,
+  startWith,
+  Subscription,
+} from 'rxjs';
 import { ClickTravelService } from './click-travel.service';
 import { Destination } from './models/destination.interface';
 
@@ -9,28 +16,23 @@ import { Destination } from './models/destination.interface';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit, OnDestroy {
-  destinations!: Destination[];
+export class AppComponent implements OnInit {
+  destinations!: Observable<Destination[]>;
   title = 'Choose your dream destination...';
   isDreamDestinationForm = new FormControl(false);
 
-  private sub!: Subscription;
-
   constructor(private clickTravelService: ClickTravelService) {}
- 
 
   ngOnInit(): void {
-    this.sub = combineLatest([
+    this.destinations = combineLatest([
       this.clickTravelService.getDestinations(),
       this.isDreamDestinationForm.valueChanges.pipe(startWith(false)),
-    ]).subscribe(([destinations, isDreamDestination]) => {
-      this.destinations = destinations.filter((dest) =>
-        isDreamDestination ? dest.isDreamDestination : true
-      );
-    });
-  } 
-  
-  ngOnDestroy(): void {
-    this.sub.unsubscribe()
+    ]).pipe(
+      map(([destinations, isDreamDestination]) =>
+        destinations.filter((dest) =>
+          isDreamDestination ? dest.isDreamDestination : true
+        )
+      )
+    );
   }
 }
