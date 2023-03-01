@@ -5,8 +5,14 @@
   <div class="content">
     <div>
       <h1 class="title">{{ title }}</h1>
+      <div>
+        <mat-button-toggle-group [(ngModel)]="isDreamDestination" (change)="filterDestinations()" aria-label="Destinations">
+          <mat-button-toggle [value]="false">All</mat-button-toggle>
+          <mat-button-toggle [value]="true">Dream</mat-button-toggle>
+        </mat-button-toggle-group>       
+      </div>
       <div class="links">
-        <a mat-stroked-button *ngFor="let destination of destinations" href="#" > {{ destination.name }} </a>
+        <a mat-raised-button *ngFor="let destination of destinations" href="#" color="primary" > {{ destination.name }} </a>
       </div>
     </div>
   </div>
