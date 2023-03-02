@@ -16,23 +16,9 @@ import { Destination } from './models/destination.interface';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
-  destinations!: Observable<Destination[]>;
+export class AppComponent{
   title = 'Choose your dream destination...';
-  isDreamDestinationForm = new FormControl(false);
+  
 
-  constructor(private clickTravelService: ClickTravelService) {}
-
-  ngOnInit(): void {
-    this.destinations = combineLatest([
-      this.clickTravelService.getDestinations(),
-      this.isDreamDestinationForm.valueChanges.pipe(startWith(false)),
-    ]).pipe(
-      map(([destinations, isDreamDestination]) =>
-        destinations.filter((dest) =>
-          isDreamDestination ? dest.isDreamDestination : true
-        )
-      )
-    );
-  }
+  
 }
