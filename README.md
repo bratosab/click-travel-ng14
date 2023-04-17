@@ -19,7 +19,7 @@
 <!-- - Ajouter la librairie de composant PrimeNG en utilsant le Getting started ici : https://www.primefaces.org/primeng/setup
 - Changer les boutons de la home page pour utiliser le composant bouton de PrimeNG : https://www.primefaces.org/primeng/button
 - Ajouter un toggle button (https://www.primefaces.org/primeng/togglebutton) pour activer ou desactiver le filtre (`isDreamDestination`) implémenter auparavent pour afficher toutes les destinations. -->
-- Ajouter la librairie de composant Angular Maerial en utilsant le Getting started ici : https://material.angular.io/guide/getting-started
+- Ajouter la librairie de composant Angular Material en utilsant le Getting started ici : https://material.angular.io/guide/getting-started
 - Changer les boutons de la home page pour utiliser le composant bouton de Material : https://material.angular.io/components/button/overview
 - Ajouter un toggle button (https://material.angular.io/components/button-toggle/overview) pour activer ou desactiver le filtre (`isDreamDestination`) implémenter auparavent pour afficher toutes les destinations.
 
