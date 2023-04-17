@@ -10,19 +10,23 @@
 - Installer les dépendances npm et lancer le projet (Infos à la fin du readme)
 - Récupérer et afficher les destinations de rêve par les destinations de rêve de l'API, pour se faire :
   1. Créer un service `click-travel` et l'injecter dans l'app,
-  2. Créer une méthode pour récupérer les données de l'API `https://travel-api.clicksomeone.com/destinations` - [Swagger de l'API](https://travel-api.clicksomeone.com/explorer/#/DestinationController/DestinationController.find),
-  3. Implémenter l'appel de cette méthode dans le composant `AppComponent` et filtrer par les destinations de rêves (`isDreamDestination: true`), de préférence avec du [**RxJS**](https://www.learnrxjs.io/learn-rxjs/operators/transformation/map),
+  2. Créer une méthode pour récupérer les données de l'API `https://travel-api.clicksomeone.com/destinations` - [Swagger de l'API](https://travel-api.clicksomeone.com/explorer/#/DestinationController/DestinationController.find) : https://angular.io/guide/http,
+  3. Implémenter l'appel de cette méthode dans le composant `AppComponent` et filtrer par les destinations de rêves (`isDreamDestination: true`)
   4. Remplacer les boutons codés en dur de la home page par les destinations de rêves dynamiques.
 
 # Partie 2
 
-- Ajouter la librairie de composant PrimeNG en utilsant le Getting started ici : https://www.primefaces.org/primeng/setup
+<!-- - Ajouter la librairie de composant PrimeNG en utilsant le Getting started ici : https://www.primefaces.org/primeng/setup
 - Changer les boutons de la home page pour utiliser le composant bouton de PrimeNG : https://www.primefaces.org/primeng/button
-- Ajouter un toggle button (https://www.primefaces.org/primeng/togglebutton) pour activer ou desactiver le filtre (`isDreamDestination`) implémenter auparavent pour afficher toutes les destinations.
+- Ajouter un toggle button (https://www.primefaces.org/primeng/togglebutton) pour activer ou desactiver le filtre (`isDreamDestination`) implémenter auparavent pour afficher toutes les destinations. -->
+- Ajouter la librairie de composant Angular Maerial en utilsant le Getting started ici : https://material.angular.io/guide/getting-started
+- Changer les boutons de la home page pour utiliser le composant bouton de Material : https://material.angular.io/components/button/overview
+- Ajouter un toggle button (https://material.angular.io/components/button-toggle/overview) pour activer ou desactiver le filtre (`isDreamDestination`) implémenter auparavent pour afficher toutes les destinations.
+
 
 # Partie 3
 
-- Au clic sur un des boutons, naviguer vers une page qui permet d'afficher la liste des billets d'avion disponible pour se rendre à la destination de rêve sélectionnée, en utilisant le router Angular. Vous pouvez passez l'information de la destination dans un query param de l'URL.
+- Au clic sur un des boutons, naviguer vers une page qui permet d'afficher la liste des billets d'avion disponible pour se rendre à la destination de rêve sélectionnée, en utilisant le router Angular (https://angular.io/guide/router#defining-a-basic-route). Vous pouvez passez l'information de la destination dans un query param de l'URL.
 - Implementer l'appel API dans un service pour récuperer la liste des billets est récupérable sur `https://travel-api.clicksomeone.com/tickets` - [Swagger de l'API](https://travel-api.clicksomeone.com/explorer/#/TicketController/TicketController.find)
   * Cette liste est filtrable en passant un paramètre `filter` en query param, précisant la propriété et la valeur du filtre, example : [Vols pour New York](GET "https://travel-api.clicksomeone.com/tickets?filter=%7B%0A%20%20%22where%22%3A%20%7B%20%22to%22%3A%20%22NYC%22%20%7D%0A%7D") :
     * Valeur de `filter` :
