@@ -1,0 +1,28 @@
+<div>
+  <h1 class="title">{{ title }}</h1>
+  <div *ngIf="isLoading" class="title">
+    Chargement en cours, veuillez patienter...
+  </div>
+
+  <div class="links">
+    <mat-button-toggle-group
+      (change)="filterDestinations($event.value === 'dream')"
+      name="Destinations"
+      aria-label="Destinations"
+    >
+      <mat-button-toggle value="all">All destinations</mat-button-toggle>
+      <mat-button-toggle value="dream">Dream destinations</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+  <div class="links">
+    <button
+      *ngFor="let dest of destinations"
+      [routerLink]="['/tickets', dest.code]"
+      mat-flat-button
+      color="primary"
+    >
+      {{ dest.name }}
+    </button>
+  </div>
+</div>

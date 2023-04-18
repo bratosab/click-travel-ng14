@@ -1,14 +1,8 @@
 <div class="container">
   <div class="toolbar">
-    <app-logo></app-logo>
+    <app-logo [show]="true"></app-logo>
   </div>
   <div class="content">
-    <div>
-      <h1 class="title">{{ title }}</h1>
-      <div *ngIf="isLoading" class="title">Chargement en cours, veuillez patienter...</div>
-      <div class="links">
-        <a *ngFor="let dest of destinations" href="#" class="giant-button"> {{ dest.name }} </a>
-      </div>
-    </div>
+    <router-outlet></router-outlet>
   </div>
 </div>
