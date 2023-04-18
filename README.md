@@ -33,7 +33,7 @@
      ```json 
      { "where": { "to": "NYC" } } 
      ```
-- Afficher la liste des billets dans un composants tableau PrimeNG : https://www.primefaces.org/primeng/table/selection
+- Afficher la liste des billets dans un composants tableau Material : https://material.angular.io/components/table/overview
 Afficher les colonnes : 
     - Le nom du vol (`flight`)
     - La ville de départ (`from`)
@@ -41,7 +41,7 @@ Afficher les colonnes :
     - La classe du billet (`class`)
 # Partie 4
 
-- Au clic sur un billet de la liste, afficher dans une Dialog PrimeNG : https://www.primefaces.org/primeng/dialog
+- Au clic sur un billet de la liste, afficher dans une Dialog Material : https://material.angular.io/components/dialog/overview
 Le billet avec le même design que le billet suivant :
 
 ![ticket](./src/assets/ticket-example.png)
