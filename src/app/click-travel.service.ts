@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map } from 'rxjs';
+import { environment } from '../environments/environment';
 import { Destination } from './models/destination.model';
 import { Ticket } from './models/ticket.model';
 
@@ -8,7 +9,8 @@ import { Ticket } from './models/ticket.model';
   providedIn: 'root',
 })
 export class ClickTravelService {
-  readonly baseUrl = 'https://travel-api.clicksomeone.com';
+
+  readonly baseUrl = environment.baseUrl
 
   constructor(private http: HttpClient) {}
 
