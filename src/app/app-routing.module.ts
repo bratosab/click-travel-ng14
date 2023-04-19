@@ -5,7 +5,8 @@ import { TicketsComponent } from './tickets/tickets.component';
 
 const routes: Routes = [
   { path: '', component: DestinationsComponent },
-  { path: 'tickets/:code', component: TicketsComponent }
+  { path: 'tickets/:code', component: TicketsComponent },
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) }
 ];
 
 @NgModule({

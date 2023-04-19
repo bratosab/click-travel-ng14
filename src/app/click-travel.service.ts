@@ -1,5 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { catchError, map } from 'rxjs';
 import { Destination } from './models/destination.model';
 import { Ticket } from './models/ticket.model';
 
@@ -11,14 +12,29 @@ export class ClickTravelService {
 
   constructor(private http: HttpClient) {}
 
-  getDestinations() {
-    return this.http.get<Destination[]>(`${this.baseUrl}/destinations`);
+  getDestinations(params?: HttpParams) {
+    return this.http.get<Destination[]>(`${this.baseUrl}/destinations`, {
+      params,
+    });
   }
 
   getTickets(destinationCode: string) {
     const filterObject = JSON.stringify({ where: { to: destinationCode } });
     const params: HttpParams = new HttpParams().set('filter', filterObject);
 
-    return this.http.get<Ticket[]>(`${this.baseUrl}/tickets`, { params: params });
+    return this.http.get<Ticket[]>(`${this.baseUrl}/tickets`, {
+      params: params,
+    });
+  }
+
+  addDestination(destination: Destination) {
+    return this.http
+      .post<Destination>(`${this.baseUrl}/destinations`, destination)
+      .pipe(
+        catchError((error) => {
+          console.error('Erreur gérée :', error);
+          throw error;
+        })
+      );
   }
 }

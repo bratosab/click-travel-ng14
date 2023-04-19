@@ -1,0 +1,52 @@
+<h2>Add a new destination</h2>
+
+<form [formGroup]="destinationForm" (ngSubmit)="submitDestination()">
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Code</mat-label>
+    <input matInput formControlName="code" />
+    <mat-error *ngIf="codeControl.hasError('codeTaken')"
+      >The destination code has already been used</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Weather</mat-label>
+    <mat-select formControlName="weather">
+      <mat-option *ngFor="let weather of weathers" [value]="weather">{{
+        weather
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <p>
+    <mat-checkbox formControlName="isDreamDestination"
+      >Is it a dream destination ?</mat-checkbox
+    >
+  </p>
+
+  <div class="actions">
+    <button
+      mat-raised-button
+      type="button"
+      color="secondary"
+      (click)="cancelAddDestination()"
+    >
+      Cancel
+    </button>
+    <button
+      mat-raised-button
+      type="submit"
+      color="primary"
+      [disabled]="!destinationForm.valid || isLoading"
+    >
+      Save the new destination
+    </button>
+  </div>
+</form>
+
+<div *ngIf="isError">There was an error while adding the destination.</div>
