@@ -10,12 +10,20 @@ import { ClickTravelService } from './click-travel.service';
 export class AppComponent implements OnInit {
   title = 'Choose your dream destination...';
   destinations!: Destination[];
+  private allDestinations!: Destination[];
 
   constructor(private clickTravelService: ClickTravelService) {}
 
   ngOnInit() {
     this.clickTravelService.getDestinations().subscribe((result) => {
-      this.destinations = result.filter(destination => destination.isDreamDestination);
+      this.allDestinations = result;
+      this.filterDestinations(true)
     });
+  }
+
+  filterDestinations(isDreamDestination: boolean) {
+    this.destinations = this.allDestinations.filter((destination) =>
+      isDreamDestination ? destination.isDreamDestination : true
+    );
   }
 }

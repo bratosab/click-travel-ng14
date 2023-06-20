@@ -6,13 +6,23 @@
     <div>
       <h1 class="title">{{ title }}</h1>
       <div class="links">
-        <a
+        <mat-button-toggle-group
+          (change)="filterDestinations($event.value === 'dream')"
+        >
+          <mat-button-toggle value="all">All destinations</mat-button-toggle>
+          <mat-button-toggle value="dream" checked
+            >Dream destinations</mat-button-toggle
+          >
+        </mat-button-toggle-group>
+      </div>
+      <div class="links">
+        <button
           *ngFor="let destination of destinations"
-          href="#"
-          class="giant-button"
+          mat-raised-button
+          color="primary"
         >
           {{ destination.name }}
-        </a>
+        </button>
       </div>
     </div>
   </div>
