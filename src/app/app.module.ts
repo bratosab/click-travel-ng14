@@ -7,11 +7,15 @@ import { AppComponent } from './app.component';
 import { LogoComponent } from './logo/logo.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedMaterialModule } from './shared-material/shared-material.module';
+import { DestinationsComponent } from './destinations/destinations.component';
+import { TicketsComponent } from './tickets/tickets.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LogoComponent
+    LogoComponent,
+    DestinationsComponent,
+    TicketsComponent
   ],
   imports: [
     BrowserModule,

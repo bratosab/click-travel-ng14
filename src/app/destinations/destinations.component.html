@@ -1,0 +1,20 @@
+<div class="links">
+  <mat-button-toggle-group
+    (change)="filterDestinations($event.value === 'dream')"
+  >
+    <mat-button-toggle value="all">All destinations</mat-button-toggle>
+    <mat-button-toggle value="dream" checked
+      >Dream destinations</mat-button-toggle
+    >
+  </mat-button-toggle-group>
+</div>
+<div class="links">
+  <button
+    *ngFor="let destination of destinations"
+    mat-raised-button
+    color="primary"
+    [routerLink]="['/tickets', destination.code]"
+  >
+    {{ destination.name }}
+  </button>
+</div>
