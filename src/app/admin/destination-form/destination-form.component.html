@@ -1,0 +1,43 @@
+<h2>Add new Destination</h2>
+
+<form [formGroup]="destinationForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Code</mat-label>
+    <input matInput formControlName="code" />
+    <mat-error>The destination code must be 3 caracters long</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Weather</mat-label>
+    <mat-select formControlName="weather">
+      <mat-option *ngFor="let weather of weatherOptions" value="weather">
+        {{ weather }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <p>
+    <mat-checkbox formControlName="isDreamDestination">
+      Is a dream destination ?
+    </mat-checkbox>
+  </p>
+
+  <div>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!destinationForm.valid"
+    >
+      Save new destination !
+    </button>
+  </div>
+  <mat-error *ngIf="isError">
+    There was an error while saving the destination !
+  </mat-error>
+</form>

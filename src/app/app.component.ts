@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { LocalizeFn } from '@angular/localize/init';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +8,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'Choose your dream destination...';
+  title = $localize `Choose your dream destination...${environment.title}`;
   
 }

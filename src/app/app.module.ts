@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedMaterialModule } from './shared-material/shared-material.module';
 import { DestinationsComponent } from './destinations/destinations.component';
 import { TicketsComponent } from './tickets/tickets.component';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { TicketsComponent } from './tickets/tickets.component';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    SharedMaterialModule
+    SharedMaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

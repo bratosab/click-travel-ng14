@@ -26,4 +26,8 @@ export class ClickTravelService {
 
     return this.http.get<Ticket[]>(`${this.baseUrl}/tickets`, { params })
   }
+
+  postDestination(destination: Destination) {
+    return this.http.post(`${this.baseUrl}/destinations`, destination)
+  }
 }

@@ -1,0 +1,14 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+}

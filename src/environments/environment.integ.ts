@@ -1,5 +1,4 @@
 export const environment = {
-  production: false,
-  title: '(DEV)',
+  production: true,
   apiUrl: 'https://travel-api.clicksomeone.com',
 };

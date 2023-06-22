@@ -2,8 +2,10 @@
   <div class="toolbar">
     <app-logo></app-logo>
   </div>
+  <div><a [routerLink]="['/admin']">Admin</a></div>
   <div class="content">
     <div>
+      <h1 i18n>Welcome !</h1>
       <h1 class="title">{{ title }}</h1>
       <router-outlet></router-outlet>
     </div>
