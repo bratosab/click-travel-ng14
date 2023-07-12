@@ -16,6 +16,15 @@ export class ClickTravelService {
     return this.http.get<Destination[]>(`${this.travelApi}/destinations`)
   }
 
+  getDestination({ code }: Pick<Destination, 'code'>): Observable<Destination[]> {
+    const filterObject = JSON.stringify({
+      where: { code: code }
+    })
+    const params: HttpParams = new HttpParams().set('filter', filterObject)
+
+    return this.http.get<Destination[]>(`${this.travelApi}/destinations`, { params })
+  }
+
   getTickets({ code }: Pick<Destination, 'code'>) {
     const filterObject = JSON.stringify({
       where: { to: code }
@@ -24,5 +33,9 @@ export class ClickTravelService {
     const params: HttpParams = new HttpParams().set('filter', filterObject)
 
     return this.http.get<Ticket[]>(`${this.travelApi}/tickets`, { params })
+  }
+
+  postDestination(newDestination: Destination) {
+    return this.http.post(`${this.travelApi}/destinations`, newDestination);
   }
 }

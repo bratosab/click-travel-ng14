@@ -1,0 +1,34 @@
+<h1 mat-dialog-title>Add new destination</h1>
+<form [formGroup]="destinationForm" (ngSubmit)="onSubmit()">
+  <div mat-dialog-content class="destination-form">
+    <p>Add your new destination using this form</p>
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Code</mat-label>
+      <input matInput formControlName="code" />
+      <mat-error *ngIf="code && code.errors && code.errors['codeTaken']">
+        This Code already exists !
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Weather</mat-label>
+      <input matInput formControlName="weather" />
+    </mat-form-field>
+
+    <mat-checkbox formControlName="isDreamDestination"
+      >Is it a DREAM Destination ?</mat-checkbox
+    >
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="cancel()">Cancel</button>
+    <button mat-button type="sumbit" cdkFocusInitial>Save</button>
+  </div>
+  <mat-error *ngIf="isError">
+    There was an error while saving the destination !
+  </mat-error>
+</form>
