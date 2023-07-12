@@ -1,0 +1,11 @@
+<div *ngIf="tickets && tickets.length > 0; else noTickets">
+    <p *ngFor="let ticket of tickets">
+        From : {{ ticket.from }},
+        To : {{ ticket.to }},
+        Passenger: {{ ticket.passenger }},
+        Nb. : {{ ticket.number }}
+    </p>
+</div>
+<ng-template #noTickets>
+    <p>No tickets for destination</p>
+</ng-template>

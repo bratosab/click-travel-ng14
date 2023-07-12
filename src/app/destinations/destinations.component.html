@@ -1,0 +1,11 @@
+<div class="toolbar">
+    <mat-button-toggle-group (change)="handleDestFilterChange($event.value)">
+      <mat-button-toggle value="all">All destinations</mat-button-toggle>
+      <mat-button-toggle value="dream">Dream destinations</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+<div class="links">
+  <button *ngFor="let dest of destinations" mat-raised-button color="primary" [routerLink]="['/tickets', dest.code]">
+    {{ dest.name }}
+  </button>
+</div>
