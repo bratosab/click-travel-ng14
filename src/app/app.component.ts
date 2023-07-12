@@ -10,22 +10,28 @@ import { Observable, map } from 'rxjs';
 })
 export class AppComponent implements OnInit {
   title = 'Choose your dream destination...';
-  // destinations!: Destination[];
-  destinations$!: Observable<Destination[]>;
+
+  private allDestinations!: Destination[];
+  destinations!: Destination[];
+  // destinations$!: Observable<Destination[]>;
 
   constructor(private clickTravelService: ClickTravelService) {}
 
   ngOnInit(): void {
-    // this.clickTravelService.getDestinations().subscribe(destinations => {
-    //   this.destinations = destinations.filter(dest => dest.isDreamDestination)
-    // })
+    this.clickTravelService.getDestinations().subscribe((destinations) => {
+      this.allDestinations = destinations;
 
-    this.destinations$ = this.clickTravelService
-      .getDestinations()
-      .pipe(
-        map((destinations) =>
-          destinations.filter((dest) => dest.isDreamDestination)
-        )
-      );
+      this.filterDestinations(true);
+    });
+  }
+
+  private filterDestinations(isDreamDestination: boolean) {
+    this.destinations = isDreamDestination
+      ? this.allDestinations.filter((dest) => dest.isDreamDestination)
+      : this.allDestinations;
+  }
+
+  handleDestFilterChange(value: string) {
+    this.filterDestinations(value === 'dream');
   }
 }

@@ -2,12 +2,26 @@
   <div class="toolbar">
     <app-logo></app-logo>
   </div>
+
+  <div class="toolbar">
+    <mat-button-toggle-group (change)="handleDestFilterChange($event.value)">
+      <mat-button-toggle value="all">All destinations</mat-button-toggle>
+      <mat-button-toggle value="dream">Dream destinations</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
   <div class="content">
     <div>
       <h1 class="title">{{ title }}</h1>
       <div class="links">
-        <a *ngFor="let dest of destinations$ | async" href="#" class="giant-button"> {{ dest.name }} </a>
-</div>
+        <button
+          *ngFor="let dest of destinations"
+          mat-raised-button
+          color="primary"
+        >
+          {{ dest.name }}
+        </button>
+      </div>
     </div>
   </div>
 </div>
