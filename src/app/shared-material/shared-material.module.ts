@@ -6,6 +6,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 const MAT_MODULES = [
   MatButtonModule,
@@ -14,6 +15,7 @@ const MAT_MODULES = [
   MatFormFieldModule,
   MatInputModule,
   MatCheckboxModule,
+  MatProgressBarModule,
 ];
 
 @NgModule({

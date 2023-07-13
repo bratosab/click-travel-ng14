@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'Choose your dream destination...';
+  title = $localize`Choose your dream destination...`;
 
   constructor() {}
 

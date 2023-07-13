@@ -13,17 +13,12 @@ export class TicketsComponent implements OnInit {
   tickets: Ticket[] = [];
 
   constructor(
-    private clickTravelService: ClickTravelService,
     private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    const code = this.route.snapshot.paramMap.get('code');
-
-    if (code) {
-      this.clickTravelService.getTickets({ code }).subscribe((tickets) => {
-        this.tickets = tickets;
-      });
-    }
+    this.route.data.subscribe(({ tickets }) => {
+      this.tickets = tickets as Ticket[];
+    });
   }
 }

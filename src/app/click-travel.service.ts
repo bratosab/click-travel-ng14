@@ -16,6 +16,11 @@ export class ClickTravelService {
     return this.http.get<Destination[]>(`${this.travelApi}/destinations`)
   }
 
+  /**
+   * Get a given destination
+   * @param an object with a destination code 
+   * @returns Array of Destinations
+   */
   getDestination({ code }: Pick<Destination, 'code'>): Observable<Destination[]> {
     const filterObject = JSON.stringify({
       where: { code: code }

@@ -5,13 +5,14 @@ import { Destination } from '../models/destination.model';
 @Component({
   selector: 'app-destinations',
   templateUrl: './destinations.component.html',
-  styleUrls: ['./destinations.component.scss']
+  styleUrls: ['./destinations.component.scss'],
 })
 export class DestinationsComponent implements OnInit {
   private allDestinations!: Destination[];
   destinations!: Destination[];
+  loading = false;
 
-  constructor(private clickTravelService: ClickTravelService) { }
+  constructor(private clickTravelService: ClickTravelService) {}
 
   ngOnInit(): void {
     this.clickTravelService.getDestinations().subscribe((destinations) => {
@@ -27,8 +28,11 @@ export class DestinationsComponent implements OnInit {
       : this.allDestinations;
   }
 
+  setLoading() {
+    this.loading = true;
+  }
+  
   handleDestFilterChange(value: string) {
     this.filterDestinations(value === 'dream');
   }
-
 }
